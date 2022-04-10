@@ -5,14 +5,19 @@ import { Component } from '@angular/core';
   template:
     `<div>
       <h1>{{title}}</h1>
+      <app-loading></app-loading>
+      <app-heroes></app-heroes>
     </div>`,
   styles: [`
     div
+      /* position: absolute */
       display: flex
-      justify-content: center
+      flex-direction: column
+      align-items: center
+      height: 100vh
+      width: 100vw
+      background-color: #262626
     h1
-      color: teal
-      font-family: 'Courier New'
       font-size: 3rem
   `]
 })
