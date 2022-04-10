@@ -12,11 +12,12 @@ import { Component } from '@angular/core';
     div
       /* position: absolute */
       display: flex
+      text-align: center
       flex-direction: column
       align-items: center
       height: 100vh
       width: 100vw
-      background-color: #262626
+      
     h1
       font-size: 3rem
   `]

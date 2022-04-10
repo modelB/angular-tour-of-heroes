@@ -8,11 +8,6 @@ import { Component, OnInit } from '@angular/core';
   styles: [`
     .gif
       height: 200px
-      position: fixed
-      top: 15%
-      left: 17%
-      margin-top: -100px
-      margin-left: -100px
     `]
 })
 export class LoadingComponent implements OnInit {

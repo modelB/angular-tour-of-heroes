@@ -11,36 +11,38 @@ import { HEROES } from '../mock-heros';
         <button *ngFor="let hero of heroes" (click)='onSelect(hero)'>{{ hero.name }}</button>
       </ul>
 
-      <span *ngIf='selectedHero'>Selected hero: {{selectedHero.name}}</span>
+      <span class='selected-hero' *ngIf='selectedHero'>Selected hero: {{selectedHero.name}}</span>
     </div>
   `,
   styles: [
     `
-    span
-      margin-left: -30px
     h2
       text-decoration: underline
       color: #e2dfdf
-    .heroes-wrap
-      position: absolute
-      left: 50%
-      margin-left: -70px
+    .selected-hero
+      text-align: center
     .heros-list
-      margin-left: -36px
       display: flex
-      flex-direction: column
+      padding: 0
+      flex-direction: row
+      justify-content: center
+      flex-wrap: wrap
+      max-width: 400px
     button
       font-family: none
+      font-size: 1rem
       border: 1px solid #7a7878
       height:35px
       width: 120px
-      margin: 3px 0
+      border-radius: 3px
+      margin: 3px
       background-color: #3f3d3d
       color: #e2dfdf
       &:hover
         background-color: #7a7878
         cursor: pointer
         color: #02c1c1
+        border-color: #02c1c1
   `,
   ],
 })
