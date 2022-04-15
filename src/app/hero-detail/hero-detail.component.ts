@@ -1,8 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { Hero } from '../types/hero';
+import { HeroService } from '../services/hero.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -11,23 +11,18 @@ import { HeroService } from '../hero.service';
       <label for="hero-name">Hero name: </label>
       <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
     </div>
+    <div class='selected-hero-wrap'>
+
+
+    <button (click)='save()'>Save</button>
     <button (click)='goBack()'>Back</button>
+</div>
   `,
   styles: [
     `
     .selected-hero-wrap
       margin-top: 35px
       font-size: 1.3rem
-    label
-    input
-      font-size: 1.3rem
-      font-family: 'Courier New'
-      background-color: #262626
-      border: 1px solid #7a7878
-      border-radius: 2px
-      color: #02c1c1
-      text-indent: 8px
-      font-weight: normal
     button
       margin: 10px
   `,
@@ -52,5 +47,11 @@ export class HeroDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    if (this.hero){
+      this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+    }
   }
 }

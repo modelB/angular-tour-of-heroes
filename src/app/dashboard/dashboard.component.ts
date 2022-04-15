@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { Hero } from '../types/hero';
+import { HeroService } from '../services/hero.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +11,17 @@ import { HeroService } from '../hero.service';
         {{ hero.name }}
       </a>
     </div>
+
+    <app-hero-search></app-hero-search>
   `,
-  styles: [],
+  styles: [`
+  div
+    display: flex
+  a
+    color: #02c1c1
+    margin-right: 10px
+
+  `],
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
